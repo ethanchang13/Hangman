@@ -92,6 +92,7 @@ function guessLetter() {
   if (guessedLetters.includes(guessedLetter)) {
     alert(`You already guessed '${guessedLetter}'. Try a different letter!`); // Alert user if invalid input
     inputField.value = ""; // Clear input field
+    return; // Exit function
   }
 
   // Store guessed letter
@@ -136,4 +137,20 @@ function updateCorrectGuess(guessedLetter) {
   if (!displayedWord.includes("_")) {
     endGame(true);
   }
+}
+
+function endGame(won) {
+  let message = won
+    ? "🎉 Congratulations! You guessed the word! 🍀"
+    : `❌ Game Over! The word was "${selectedWord}".`;
+
+  setTimeout(() => alert(message), 100); // Display alert after short delay
+
+  document.getElementById.classList.add("d-none");
+  document.getElementById.classList.remove("d-block");
+}
+
+// Restart game
+function restartGame() {
+  location.reload();
 }
