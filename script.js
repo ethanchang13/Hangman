@@ -153,6 +153,7 @@ function restartGame() {
   wrongGuesses = 0;
   displayedWord = "";
   guessedLetters = [];
+  document.getElementById("wrongLetters").textContent = "Wrong Guesses: ";
   document.getElementById("gameArea").classList.add("d-none");
   document.getElementById("difficultyBox").classList.add("d-none");
   document.getElementById("difficultySelection").classList.remove("d-none");
