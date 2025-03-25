@@ -145,12 +145,15 @@ function endGame(won) {
     : `❌ Game Over! The word was "${selectedWord}".`;
 
   setTimeout(() => alert(message), 100); // Display alert after short delay
-
-  document.getElementById.classList.add("d-none");
-  document.getElementById.classList.remove("d-block");
 }
 
 // Restart game
 function restartGame() {
-  location.reload();
+  selectedWord = "";
+  wrongGuesses = 0;
+  displayedWord = "";
+  guessedLetters = [];
+  document.getElementById("gameArea").classList.add("d-none");
+  document.getElementById("difficultyBox").classList.add("d-none");
+  document.getElementById("difficultySelection").classList.remove("d-none");
 }
