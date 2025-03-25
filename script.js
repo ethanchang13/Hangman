@@ -20,6 +20,14 @@ let wrongGuesses = 0;
 let guessedLetters = [];
 const maxMistakes = 6;
 
+// Add event listener for "Enter" key to add task
+document
+  .getElementById("letterInput")
+  .addEventListener("keydown", function (event) {
+    // If "Enter" is pressed, add the task
+    if (event.key === "Enter") guessLetter();
+  });
+
 // Start game function (runs everything)
 function startGame(level) {
   // Reset game
