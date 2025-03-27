@@ -18,6 +18,7 @@ let selectedWord = "";
 let displayedWord = "";
 let wrongGuesses = 0;
 let guessedLetters = [];
+let gameOver = false;
 const maxMistakes = 6;
 
 // Add event listener for "Enter" key to add task
@@ -86,6 +87,8 @@ function updateUI() {
 }
 
 function guessLetter() {
+  if (gameOver) return; // Prevent guessing if game is over
+
   let inputField = document.getElementById("letterInput"); // Get input field
   let guessedLetter = inputField.value.toLowerCase(); // Convert input to lowercase
 
@@ -148,6 +151,7 @@ function updateCorrectGuess(guessedLetter) {
 }
 
 function endGame(won) {
+  gameOver = true;
   let message = won
     ? "🎉 Congratulations! You guessed the word! 🍀"
     : `❌ Game Over! The word was "${selectedWord}".`;
@@ -161,6 +165,7 @@ function restartGame() {
   wrongGuesses = 0;
   displayedWord = "";
   guessedLetters = [];
+  gameOver = false;
   document.getElementById("wrongLetters").textContent = "Wrong Guesses: ";
   document.getElementById("gameArea").classList.add("d-none");
   document.getElementById("difficultyBox").classList.add("d-none");
