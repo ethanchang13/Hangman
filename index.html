@@ -16,34 +16,49 @@
 <body>
 
     <main class="container text-center">
-        <h1 class="mb-4">&#9752; Shamrock Hangman &#9752;</h1>
-
-        <div id="difficultySelection"> <!-- remove this d-none -->
-            <h3>Select Difficulty</h3>
-            <button class="btn btn-success difficulty-btn" onclick="startGame('easy')">Easy</button>
-            <button class="btn btn-warning difficulty-btn" onclick="startGame('medium')">Medium</button>
-            <button class="btn btn-danger difficulty-btn" onclick="startGame('hard')">Hard</button>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">&#9752; Shamrock Hangman &#9752;</h1>
+            </div>
         </div>
 
-        <div id="difficultyBox" class="mt-3 p-3 fw-bold d-none"></div> <!-- add d-none here -->
-
-        <div id="gameArea" class="mt-4 d-none"> <!-- add d-none here -->
-            <h2 id="wordDisplay" class="mb-3">_ _ _ _ _</h2>
-
-            <div class="mb-3">
-                <input type="text" id="letterInput" maxlength="1" class="form-control d-inline-block w-auto"
-                    placeholder="Enter a Letter">
-                <button id="guessBtn" class="btn btn-warning" onclick="guessLetter()">Guess</button>
+        <div id="difficultySelection" class="row mb-4"> <!-- remove this d-none -->
+            <div class="col-12">
+                <h3>Select Difficulty</h3>
             </div>
+            <div class="col-12 d-flex justify-content-center gap-3 flex-wrap">
+                <button class="btn btn-success difficulty-btn" onclick="startGame('easy')">Easy</button>
+                <button class="btn btn-warning difficulty-btn" onclick="startGame('medium')">Medium</button>
+                <button class="btn btn-danger difficulty-btn" onclick="startGame('hard')">Hard</button>
+            </div>
+        </div>
 
-            <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses: </p>
+        <div id="difficultyBox" class="row d-none"> <!-- add d-none here -->
+            <div class="col-12">
+                <div class="mt-3 p-3 fw-bold"></div>
+            </div>
+        </div>
 
-            <img src="img/image6.jpg" alt="" id="shamrock" class="shamrock-img">
-
-            <div class="mt-4">
+        <div id="gameArea" class="row mt-4 d-none"> <!-- add d-none here -->
+            <div class="col-12">
+                <h2 id="wordDisplay" class="mb-3">_ _ _ _ _</h2>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="d-flex justify-content-center gap-2">
+                    <input type="text" id="letterInput" maxlength="1" class="form-control w-auto"
+                        placeholder="Enter a Letter">
+                    <button id="guessBtn" class="btn btn-warning" onclick="guessLetter()">Guess</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses: </p>
+            </div>
+            <div class="col-12">
+                <img src="img/image6.jpg" alt="" id="shamrock" class="shamrock-img img-fluid">
+            </div>
+            <div class="col-12 mt-4">
                 <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</button>
             </div>
-
         </div>
 
     </main>
