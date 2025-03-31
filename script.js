@@ -167,6 +167,7 @@ function restartGame() {
   guessedLetters = [];
   gameOver = false;
   document.getElementById("wrongLetters").textContent = "Wrong Guesses: ";
+  document.getElementById("letterInput").value = "";
   document.getElementById("gameArea").classList.add("d-none");
   document.getElementById("difficultyBox").classList.add("d-none");
   document.getElementById("difficultySelection").classList.remove("d-none");
