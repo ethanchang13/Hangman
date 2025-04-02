@@ -123,6 +123,16 @@ function guessLetter() {
 function updateWrongGuess(guessedLetter) {
   wrongGuesses++;
   document.getElementById("wrongLetters").textContent += `${guessedLetter}`;
+
+  // Retrieve the audio element for the "wrong" sound effect
+  const wrongsound = document.getElementById("wrongsound");
+
+  // Reset playback position to the beginning to ensure it can be replayed
+  wrongsound.currentTime = 0;
+
+  // Play the sound effect
+  wrongsound.play();
+
   // document.getElementById("shamrock").src = `imgs/shamrock${6 - wrongGuesses}.jpg`;
 
   if (wrongGuesses === maxMistakes) {
@@ -143,6 +153,15 @@ function updateCorrectGuess(guessedLetter) {
 
   displayedWord = newDisplayedWord;
   updateUI();
+
+  // Retrieve the audio element for the "correct" sound effect
+  const correctsound = document.getElementById("correctsound");
+
+  // Reset playback position to the beginning to ensure it can be replayed
+  correctsound.currentTime = 0;
+
+  // Play the sound effect
+  correctsound.play();
 
   //  Check if the player has guessed all letters
   if (!displayedWord.includes("_")) {
