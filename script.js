@@ -175,7 +175,12 @@ function endGame(won) {
     ? "🎉 Congratulations! You guessed the word! 🍀"
     : `❌ Game Over! The word was "${selectedWord}".`;
 
-  setTimeout(() => alert(message), 100); // Display alert after short delay
+  // Set modal message and show modal
+  const modal = document.getElementById("endBox");
+  const messageEl = document.getElementById("endMsg");
+
+  messageEl.textContent = message;
+  modal.classList.remove("d-none");
 }
 
 // Restart game
@@ -190,4 +195,5 @@ function restartGame() {
   document.getElementById("gameArea").classList.add("d-none");
   document.getElementById("difficultyBox").classList.add("d-none");
   document.getElementById("difficultySelection").classList.remove("d-none");
+  document.getElementById("endBox").classList.add("d-none");
 }
