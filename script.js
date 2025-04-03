@@ -84,8 +84,9 @@ function startCustomWordGame() {
     .getElementById("customWordInput")
     .value.trim()
     .toLowerCase();
+  const errorBox = document.getElementById("wordEntryError");
+
   if (!input.match(/^[a-z]{3,20}$/)) {
-    const errorBox = document.getElementById("wordEntryError");
     errorBox.textContent =
       "Please enter a valid word (3–20 letters, A–Z only).";
     errorBox.classList.remove("d-none");
@@ -98,8 +99,7 @@ function startCustomWordGame() {
   displayedWord = "_".repeat(selectedWord.length);
   document.getElementById("difficultyBox").classList.remove("d-none");
   document.getElementById("difficultyBox").classList.add("d-block");
-  document.querySelector("#difficultyBox .fw-bold").textContent =
-    "Difficulty: Friend Mode";
+  document.querySelector("#difficultyBox").textContent = "Custom Mode";
   document.getElementById("wordEntryError").classList.add("d-none");
   updateUI();
 
@@ -107,6 +107,7 @@ function startCustomWordGame() {
   document.getElementById("gameArea").classList.add("d-block");
   document.getElementById("difficultySelection").classList.add("d-none");
   document.getElementById("wordEntryBox").classList.add("d-none");
+  document.getElementById("shamrock").src = "imgs/coin6.png";
   document.getElementById("letterInput").focus();
 }
 
