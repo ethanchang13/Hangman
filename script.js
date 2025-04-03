@@ -94,16 +94,25 @@ function guessLetter() {
 
   // Check if input is a valid letter (A-Z)
   if (!guessedLetter.match(/^[a-z]$/)) {
-    alert("Please enter a valid letter (A-Z)!"); // Alert user if invalid input
+    showMessage("Please enter a valid letter (A-Z)!"); // Alert user if invalid input
     inputField.value = ""; // Clear input field
     return; // Exit function
   }
 
   // Check if letter was already guessed
   if (guessedLetters.includes(guessedLetter)) {
-    alert(`You already guessed '${guessedLetter}'. Try a different letter!`); // Alert user if invalid input
+    showMessage(
+      `You already guessed '${guessedLetter}'. Try a different letter!`
+    ); // Alert user if invalid input
     inputField.value = ""; // Clear input field
     return; // Exit function
+  }
+
+  function showMessage(message) {
+    const box = document.getElementById("endBox");
+    const msg = document.getElementById("endMsg");
+    msg.textContent = message;
+    box.classList.remove("d-none");
   }
 
   // Store guessed letter
