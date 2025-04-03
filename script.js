@@ -199,7 +199,9 @@ function updateWrongGuess(guessedLetter) {
   // Play the sound effect
   wrongsound.play();
 
-  // document.getElementById("shamrock").src = `imgs/shamrock${6 - wrongGuesses}.jpg`;
+  document.getElementById("shamrock").src = `imgs/coin${
+    maxMistakes - wrongGuesses
+  }.png`;
 
   if (wrongGuesses === maxMistakes) {
     endGame(false);
@@ -264,6 +266,7 @@ function restartGame() {
   document.getElementById("endBox").classList.add("d-none");
   document.getElementById("wordEntryBox").classList.add("d-none");
   document.getElementById("customWordInput").value = "";
+  document.getElementById("shamrock").src = "imgs/coin6.png";
 }
 
 // Show custom word entry form
