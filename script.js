@@ -1,3 +1,4 @@
+// Declare word list
 const wordList = [
   "gold",
   "luck",
@@ -33,7 +34,7 @@ const wordList = [
   "fiddle",
   "brogue",
   "bagpipes",
-  "gaelic"
+  "gaelic",
 ];
 
 // Declare variables
@@ -71,8 +72,41 @@ function startGame(level) {
   document.getElementById("difficultyBox").classList.add("d-block");
 
   document.getElementById("difficultySelection").classList.add("d-none");
+  document.getElementById("wordEntryBox").classList.add("d-none");
 
   // Auto focus on input
+  document.getElementById("letterInput").focus();
+}
+
+// Start game with player-entered custom word
+function startCustomWordGame() {
+  const input = document
+    .getElementById("customWordInput")
+    .value.trim()
+    .toLowerCase();
+  if (!input.match(/^[a-z]{3,20}$/)) {
+    const errorBox = document.getElementById("wordEntryError");
+    errorBox.textContent =
+      "Please enter a valid word (3–20 letters, A–Z only).";
+    errorBox.classList.remove("d-none");
+    return;
+  }
+
+  wrongGuesses = 0;
+  guessedLetters = [];
+  selectedWord = input;
+  displayedWord = "_".repeat(selectedWord.length);
+  document.getElementById("difficultyBox").classList.remove("d-none");
+  document.getElementById("difficultyBox").classList.add("d-block");
+  document.querySelector("#difficultyBox .fw-bold").textContent =
+    "Difficulty: Friend Mode";
+  document.getElementById("wordEntryError").classList.add("d-none");
+  updateUI();
+
+  document.getElementById("gameArea").classList.remove("d-none");
+  document.getElementById("gameArea").classList.add("d-block");
+  document.getElementById("difficultySelection").classList.add("d-none");
+  document.getElementById("wordEntryBox").classList.add("d-none");
   document.getElementById("letterInput").focus();
 }
 
@@ -131,13 +165,6 @@ function guessLetter() {
     return; // Exit function
   }
 
-  function showMessage(message) {
-    const box = document.getElementById("endBox");
-    const msg = document.getElementById("endMsg");
-    msg.textContent = message;
-    box.classList.remove("d-none");
-  }
-
   // Store guessed letter
   guessedLetters.push(guessedLetter);
 
@@ -150,6 +177,13 @@ function guessLetter() {
 
   inputField.value = ""; // Clear input field
   document.getElementById("letterInput").focus(); // Refocus input field for next guess
+}
+
+function showMessage(message) {
+  const box = document.getElementById("endBox");
+  const msg = document.getElementById("endMsg");
+  msg.textContent = message;
+  box.classList.remove("d-none");
 }
 
 function updateWrongGuess(guessedLetter) {
@@ -228,4 +262,12 @@ function restartGame() {
   document.getElementById("difficultyBox").classList.add("d-none");
   document.getElementById("difficultySelection").classList.remove("d-none");
   document.getElementById("endBox").classList.add("d-none");
+  document.getElementById("wordEntryBox").classList.add("d-none");
+  document.getElementById("customWordInput").value = "";
+}
+
+// Show custom word entry form
+function showWordEntry() {
+  document.getElementById("difficultySelection").classList.add("d-none");
+  document.getElementById("wordEntryBox").classList.remove("d-none");
 }

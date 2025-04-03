@@ -143,6 +143,64 @@ h3 {
   margin-right: auto;
 }
 
+.word-entry-modal {
+  background: rgba(30, 41, 59, 0.95);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 2rem auto;
+  color: var(--text-light);
+  display: none;
+}
+
+.word-entry-modal input {
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.word-entry-modal button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.friend-mode-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+#startCustomGameBtn {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  padding: 1rem 2.5rem;
+  border: 2px solid #10b981;
+  border-radius: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2), var(--shadow);
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+}
+
+#startCustomGameBtn:hover {
+  background-color: #10b981;
+  color: #fff;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.4), 0 10px 35px rgba(0, 0, 0, 0.6);
+}
+
+#wordEntryError {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2.8rem;
