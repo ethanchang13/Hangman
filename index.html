@@ -11,17 +11,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/htp3upv.css">
 </head>
 
 <body>
 
     <main class="container text-center">
+        <!-- Game title -->
         <div class="row">
             <div class="col-12">
-                <h1 class="mb-4">&#9752; Shamrock Hangman &#9752;</h1>
+                <h1 class="mb-4">&#x1F340; Shamrock Hangman &#x1F340;</h1>
             </div>
         </div>
 
+        <!-- Difficulty selection buttons -->
         <div id="difficultySelection" class="row mb-4"> <!-- remove this d-none -->
             <div class="col-12">
                 <h3>Select Difficulty</h3>
@@ -36,6 +39,7 @@
             </div>
         </div>
 
+        <!-- Word entry for custom mode -->
         <div id="wordEntryBox" class="row mb-4 d-none">
             <div class="col-12">
                 <h3>Enter a Word for Your Friend</h3>
@@ -46,16 +50,22 @@
             </div>
         </div>
 
+        <!-- Box displaying current difficulty level -->
         <div id="difficultyBox" class="row d-none"> <!-- add d-none here -->
             <div class="col-12">
                 <div class="mt-3 p-3 fw-bold"></div>
             </div>
         </div>
 
+        <!-- Main game area -->
         <div id="gameArea" class="row mt-4 d-none"> <!-- add d-none here -->
+
+            <!-- Word display -->
             <div class="col-12">
                 <h2 id="wordDisplay" class="mb-3">_ _ _ _ _</h2>
             </div>
+
+            <!-- Input for guessing letters -->
             <div class="col-12 mb-3">
                 <div class="d-flex justify-content-center gap-2">
                     <input type="text" id="letterInput" maxlength="1" class="form-control w-auto"
@@ -63,26 +73,31 @@
                     <button id="guessBtn" class="btn btn-warning" onclick="guessLetter()">Guess</button>
                 </div>
             </div>
+
+            <!-- Display of wrong letters guessed -->
             <div class="col-12">
                 <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses: </p>
             </div>
+
+            <!-- Image representing health status -->
             <div class="col-12">
                 <img src="imgs/coin6.png" alt="" id="shamrock" class="shamrock-img img-fluid">
             </div>
+
+            <!-- End game message box -->
             <div class="col-12">
                 <div id="endBox" class="endBox d-none">
                     <p id="endMsg" class="m-0"></p>
                 </div>
             </div>
+
+            <!-- Restart game button -->
             <div class="col-12 mt-4">
                 <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</button>
             </div>
         </div>
-
     </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -92,6 +107,8 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <!-- Sound effects -->
     <audio id="correctsound" src="sounds/correct.mp3" preload="auto"></audio>
     <audio id="wrongsound" src="sounds/wrong.mp3" preload="auto"></audio>
 </body>

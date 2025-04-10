@@ -180,6 +180,7 @@ function guessLetter() {
   document.getElementById("letterInput").focus(); // Refocus input field for next guess
 }
 
+// Displays a message in the modal
 function showMessage(message) {
   const box = document.getElementById("endBox");
   const msg = document.getElementById("endMsg");
